@@ -91,6 +91,6 @@ resource "aws_lambda_permission" "apigw" {
 }
 
 output "url" {
-	value = aws_apigatewayv2_api.api.api_endpoint
+  value = aws_apigatewayv2_api.api.api_endpoint
 }
 

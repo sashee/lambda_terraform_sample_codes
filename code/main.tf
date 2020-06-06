@@ -28,11 +28,11 @@ data "archive_file" "lambda_zip_file" {
   type        = "zip"
   output_path = "/tmp/lambda_file-${random_id.id.hex}.zip"
   source {
-		content = file("main.js")
+    content  = file("main.js")
     filename = "main.js"
   }
   source {
-		content = file("index.html")
+    content  = file("index.html")
     filename = "index.html"
   }
 }
@@ -40,7 +40,7 @@ data "archive_file" "lambda_zip_file" {
 data "archive_file" "lambda_zip_dir" {
   type        = "zip"
   output_path = "/tmp/lambda_dir-${random_id.id.hex}.zip"
-	source_dir = "src"
+  source_dir  = "src"
 }
 
 resource "aws_lambda_function" "lambda" {
@@ -52,7 +52,7 @@ resource "aws_lambda_function" "lambda" {
   # filename         = data.archive_file.lambda_zip_file.output_path
   # source_code_hash = data.archive_file.lambda_zip_file.output_base64sha256
 
-	# run npm ci in the source folder first!
+  # run npm ci in the source folder first!
   # filename         = data.archive_file.lambda_zip_dir.output_path
   # source_code_hash = data.archive_file.lambda_zip_dir.output_base64sha256
 

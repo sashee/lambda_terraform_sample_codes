@@ -46,15 +46,15 @@ data "archive_file" "lambda_zip_dir" {
 resource "aws_lambda_function" "lambda" {
   function_name = "${random_id.id.hex}-function"
 
-	# inline code example
+  # inline code example
   filename         = data.archive_file.lambda_zip_inline.output_path
   source_code_hash = data.archive_file.lambda_zip_inline.output_base64sha256
 
-	# file interpolation example
+  # file interpolation example
   # filename         = data.archive_file.lambda_zip_file.output_path
   # source_code_hash = data.archive_file.lambda_zip_file.output_base64sha256
 
-	# directory example
+  # directory example
   # run npm ci in the source folder first!
   # filename         = data.archive_file.lambda_zip_dir.output_path
   # source_code_hash = data.archive_file.lambda_zip_dir.output_base64sha256

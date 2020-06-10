@@ -1,0 +1,1 @@
+This is the contents of an object stored in a private S3 bucket
